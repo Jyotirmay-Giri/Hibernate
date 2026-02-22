@@ -1,7 +1,5 @@
 package org.example;
 import org.hibernate.Session;
-//import com.mysql.cj.Session;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -20,8 +18,12 @@ private static SessionFactory sessionFactory;
         }
 
     }
-
     public static Session getSession() {
-        return (Session) sessionFactory.getCurrentSession();
+        return sessionFactory.getCurrentSession();
+    }
+
+
+    public static void close() {
+        sessionFactory.close();
     }
 }

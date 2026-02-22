@@ -1,6 +1,5 @@
 package org.example;
-
-import com.mysql.cj.Session;
+import org.hibernate.Session;
 
 public class HibernateDemoMain {
     public static void main(String[] args) {
@@ -10,8 +9,13 @@ public class HibernateDemoMain {
             UserClassHibernate user = new UserClassHibernate(1L,"Jyoti");
             session.beginTransaction();
             session.persist(user);
+            session.getTransaction().commit();
+            System.out.println("User saved : " + user.getId());
+
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            HibernateUtil.close();
         }
 
     }
