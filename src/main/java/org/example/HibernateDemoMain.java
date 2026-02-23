@@ -6,9 +6,10 @@ public class HibernateDemoMain {
         Session session = HibernateUtil.getSession();
 
         try{
-            UserClassHibernate user = new UserClassHibernate(1L,"Jyoti");
+            UserClassHibernate user = new UserClassHibernate("Shree");
+//            user.setName("Jyoti");
             session.beginTransaction();
-            session.persist(user);
+            session.persist(user); // save(user)
             session.getTransaction().commit();
             System.out.println("User saved : " + user.getId());
 

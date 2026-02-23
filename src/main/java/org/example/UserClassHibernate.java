@@ -12,6 +12,10 @@ public class UserClassHibernate {
     private Long id;
     private String name;
 
+
+    public UserClassHibernate() {
+    }
+
     public UserClassHibernate(Long id, String name) {
         this.id = id;
         this.name = name;
@@ -19,6 +23,10 @@ public class UserClassHibernate {
 
     public Long getId() {
         return id;
+    }
+
+    public UserClassHibernate(String name) {
+        this.name = name;
     }
 
     public void setId(Long id) {
